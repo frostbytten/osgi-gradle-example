@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'biz.aQute.bnd.builder' version '4.1.0'
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+}
+
+group 'osgi-gradle-example'
+version '1.0'
+
+ext {
+    osgiCompendium = "org.osgi:osgi.cmpn:7.0.0"
+}
+
+import aQute.bnd.gradle.Index
+allprojects {
+    task index(type: Index) {
+        bundles = fileTree(".") {
+            include "**/*.jar"
+        }
+    }
+}
+
+wrapper {
+    gradleVersion = '5.2.1'
+}

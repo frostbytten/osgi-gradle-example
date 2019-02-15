@@ -1,0 +1,14 @@
+# Gradle files
+.gradle/
+gradle/
+build/
+
+# IdeaJ files
+.idea/
+*.iml
+
+# vim files
+*.swp
+
+# OS files
+.DS_Store

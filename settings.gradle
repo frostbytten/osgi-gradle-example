@@ -1,0 +1,4 @@
+rootProject.name = 'osgi-gradle-example'
+include 'greet-api'
+include 'greet-impl'
+

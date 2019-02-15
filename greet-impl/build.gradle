@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'biz.aQute.bnd.builder'
+}
+
+dependencies {
+    compile project (':greet-api')
+    compile osgiCompendium
+    compile "org.apache.felix:org.apache.felix.framework:6.0.2"
+    compile "org.apache.felix:org.apache.felix.gogo.runtime:1.1.0"
+    runtime "org.apache.felix:org.apache.felix.gogo.shell:1.1.0"
+    runtime "org.apache.felix:org.apache.felix.gogo.command:1.0.2"
+    runtime "org.apache.felix:org.apache.felix.scr:2.1.14"
+}
+
+jar {
+    bnd('-dsannotations: *')
+}
+
+import aQute.bnd.gradle.Resolve
+import aQute.bnd.gradle.Export
+
+task resolve(type: Resolve) {
+    bndrun 'run.bndrun'
+}
+
+task export(type: Export) {
+    bndrun 'run.bndrun'
+}

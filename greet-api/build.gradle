@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+    id 'biz.aQute.bnd.builder'
+}
+
+dependencies {
+    compile osgiCompendium
+}
+
+jar {
+    bnd('Export-Package: org.example.greeting.api.*',
+        '-sources: true'
+    )
+}
+
